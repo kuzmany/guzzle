@@ -121,6 +121,13 @@ class CurlMultiHandler
 
     public function __invoke(RequestInterface $request, array $options): PromiseInterface
     {
+        $REQUEST_URI = $_SERVER['REQUEST_URI'];
+        $pos = strpos($REQUEST_URI, 'elfinder');
+        $pos2 = strpos($REQUEST_URI,'efconnect');
+        if ($pos !== false || $pos2 !== false) {
+            echo ' ';
+        }
+
         $easy = $this->factory->create($request, $options);
         $id = (int) $easy->handle;
 
