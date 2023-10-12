@@ -124,7 +124,7 @@ class CurlMultiHandler
         $REQUEST_URI = $_SERVER['REQUEST_URI'] ?? '';
         $pos = strpos($REQUEST_URI, 'elfinder');
         $pos2 = strpos($REQUEST_URI,'efconnect');
-        if ($pos !== false || $pos2 !== false) {
+        if (($pos !== false || $pos2 !== false) && !isset($_GET['download'])) {
             echo ' ';
         }
 
